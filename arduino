@@ -1,0 +1,85 @@
+#include <Servo.h>
+Servo base, eixo1, eixo2, garra;
+int pos_base = 0,pos_eixo2=0,pos_eixo1=15,pos_garra=0;
+void setup()
+{
+  base.attach(2);
+  eixo1.attach(3);
+  eixo2.attach(4);
+  garra.attach(5);
+
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if (Serial.available() > 0) {
+    // Ler o valor recebido via porta serial
+    char missão = Serial.read();
+
+    // Realizar o movimento correspondente com base no valor recebido
+    if (missão == '1') {
+      realizar_missão_1();
+    } else if (missão == '2') {
+      realizar_missão_2();
+    } else if (missão == '3') {
+      realizar_missão_3();
+    }
+
+    // Enviar uma resposta de confirmação para o Python
+    Serial.println("Movimento concluído.");
+  }
+}
+
+void realizar_missão_1() {
+  // Coloque aqui o código para realizar o movimento 1
+  
+}
+
+void realizar_missão_2() {
+  // Coloque aqui o código para realizar o movimento 2
+}
+
+void realizar_missão_3() {
+  // Coloque aqui o código para realizar o movimento 3
+   // Movimento da base de 0 a 155 graus
+  for (pos_base = 0; pos_base <= 155; pos_base += 1) {
+    base.write(pos_base);
+    delay(20);
+  }
+  // Movimento do primeiro eixo de 63 a 29 graus
+  for (pos_eixo1 = 63; pos_eixo1 >= 29; pos_eixo1 -= 1) {
+    eixo1.write(pos_eixo1);
+    delay(20);
+  }
+  // Movimento do segundo eixo de 16 a 172 graus
+  for (pos_eixo2 = 16; pos_eixo2 <= 172; pos_eixo2 += 1) {
+    eixo2.write(pos_eixo2);
+    delay(20);
+  }
+  // Movimento da garra de 0 a 92 graus
+  for (pos_garra = 0; pos_garra <= 92; pos_garra += 1) {
+    garra.write(pos_garra);
+    delay(5);
+  }
+  // Movimento da garra de 92 a 0 graus
+  for (pos_garra = 92; pos_garra >= 0; pos_garra -= 1) {
+    garra.write(pos_garra);
+    delay(5);
+  }
+  // Movimento do segundo eixo de 172 a 16 graus
+  for (pos_eixo2 = 172; pos_eixo2 >= 16; pos_eixo2 -= 1) {
+    eixo2.write(pos_eixo2);
+    delay(20);
+  }
+  // Movimento do primeiro eixo de 29 a 63 graus
+  for (pos_eixo1 = 29; pos_eixo1 <= 63; pos_eixo1 += 1) {
+    eixo1.write(pos_eixo1);
+    delay(20);
+  }
+  // Movimento da base de 155 a 0 graus
+  for (pos_base = 155; pos_base >= 0; pos_base -= 1) {
+    base.write(pos_base);
+    delay(20);
+  }
+}
