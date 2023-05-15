@@ -40,46 +40,41 @@ void realizar_missão_2() {
   // Coloque aqui o código para realizar o movimento 2
 }
 
-void realizar_missão_3() {
-  // Coloque aqui o código para realizar o movimento 3
-   // Movimento da base de 0 a 155 graus
-  for (pos_base = 0; pos_base <= 155; pos_base += 1) {
-    base.write(pos_base);
-    delay(20);
-  }
-  // Movimento do primeiro eixo de 63 a 29 graus
-  for (pos_eixo1 = 63; pos_eixo1 >= 29; pos_eixo1 -= 1) {
-    eixo1.write(pos_eixo1);
-    delay(20);
-  }
-  // Movimento do segundo eixo de 16 a 172 graus
-  for (pos_eixo2 = 16; pos_eixo2 <= 172; pos_eixo2 += 1) {
+void realizar_missão_3() 
+{
+       for (pos_eixo2=100; pos_eixo2 >= 0; pos_eixo2 -= 1) {
     eixo2.write(pos_eixo2);
-    delay(20);
-  }
-  // Movimento da garra de 0 a 92 graus
-  for (pos_garra = 0; pos_garra <= 92; pos_garra += 1) {
-    garra.write(pos_garra);
-    delay(5);
-  }
-  // Movimento da garra de 92 a 0 graus
-  for (pos_garra = 92; pos_garra >= 0; pos_garra -= 1) {
-    garra.write(pos_garra);
-    delay(5);
-  }
-  // Movimento do segundo eixo de 172 a 16 graus
-  for (pos_eixo2 = 172; pos_eixo2 >= 16; pos_eixo2 -= 1) {
+    delay(25);
+  } 
+   for (pos_eixo2=0; pos_eixo2 <= 100; pos_eixo2 += 1) {
     eixo2.write(pos_eixo2);
-    delay(20);
-  }
-  // Movimento do primeiro eixo de 29 a 63 graus
-  for (pos_eixo1 = 29; pos_eixo1 <= 63; pos_eixo1 += 1) {
-    eixo1.write(pos_eixo1);
-    delay(20);
-  }
-  // Movimento da base de 155 a 0 graus
-  for (pos_base = 155; pos_base >= 0; pos_base -= 1) {
+    delay(25);
+  }    
+   
+   for (pos_base=0; pos_base <= 180; pos_base += 1) {
     base.write(pos_base);
-    delay(20);
+    delay(25);
+  }  
+      for (pos_eixo1 = 50; pos_eixo1 >= 0; pos_eixo1 -= 1) {
+    eixo1.write(pos_eixo1);
+    delay(25);
   }
-}
+    for (pos_garra=90; pos_garra >= 0; pos_garra -= 1) {
+    garra.write(pos_garra);
+    delay(25);
+  }  
+   for (pos_eixo1=0; pos_eixo1 <= 50; pos_eixo1 += 1) {
+    eixo1.write(pos_eixo1);
+    delay(25);
+   }
+
+  for (pos_base = 180; pos_base >= 0; pos_base -= 1) {
+    base.write(pos_base);
+    delay(25);
+  }  
+ 
+    for (pos_garra=0; pos_garra <= 90; pos_garra += 1) {
+    garra.write(pos_garra);
+    delay(25);
+  }  
+  }
