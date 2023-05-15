@@ -37,7 +37,28 @@ void realizar_missão_1() {
 }
 
 void realizar_missão_2() {
-  // Coloque aqui o código para realizar o movimento 2
+       for (pos_eixo2=100; pos_eixo2 >= 0; pos_eixo2 -= 1) {
+    eixo2.write(pos_eixo2);
+    delay(25);
+  } 
+       for (pos_garra=90; pos_garra >= 0; pos_garra -= 1) {
+    garra.write(pos_garra);
+    delay(25);
+  }  
+   for (pos_eixo2=0; pos_eixo2 <= 100; pos_eixo2 += 1) {
+    eixo2.write(pos_eixo2);
+    delay(25);
+  }    
+
+      for (pos_eixo1 = 50; pos_eixo1 >= 0; pos_eixo1 -= 1) {
+    eixo1.write(pos_eixo1);
+    delay(25);
+  }
+ 
+   for (pos_eixo1=0; pos_eixo1 <= 50; pos_eixo1 += 1) {
+    eixo1.write(pos_eixo1);
+    delay(25);
+   }
 }
 
 void realizar_missão_3() 
